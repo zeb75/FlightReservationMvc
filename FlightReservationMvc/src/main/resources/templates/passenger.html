@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BOOKING</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Choose a passenger</h1>
+<form th:action="@{/flight}" th:object="${reservationViewModel}" method="post">
+<select th:field="*{passengerID}">
+  <option 
+      th:each="passenger: ${allPassengers}"
+      th:value="${passenger.ID}"
+      th:text="${passenger.name}" ></option>
+</select>
+			<input type="submit" value="next">
+</form>
+
+</body>
+</html>

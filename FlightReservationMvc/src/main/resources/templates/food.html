@@ -1,0 +1,24 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BOOKING</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Choose food</h1>
+<form th:action="@{/receipt}" th:object="${reservationViewModel}" method="post">
+<input type="hidden" th:field="*{passengerID}">
+<input type="hidden" th:field="*{flightID}">
+<input type="hidden" th:field="*{seatID}">
+<select th:field="*{foodID}">
+  <option 
+      th:each="food: ${allFood}"
+      th:value="${food.ID}"
+      th:text="${food.type + ' ' + food.price + 'kr'}" ></option>
+</select>
+			<input type="submit" value="next">
+</form>
+
+</body>
+</html>

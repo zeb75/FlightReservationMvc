@@ -1,0 +1,25 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BOOKING</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+	<body>
+		<h1>Receipt</h1>
+		<div> 
+			Name: <span th:text="${reservation.passenger.name}"></span>
+			<br> <br> 
+			<span th:text="${'Destination:' + ' ' + reservation.flight.getDestination()}"></span> 
+			<br> <br> 
+			<span th:text="${'Seat nr:' + ' ' + reservation.seat.getSeatNo()}"></span>
+			<br> <br> 
+			<span th:text="${'Food:' + ' ' + reservation.food.getType()}"></span>
+			<br> <br> 
+			<span th:text="${'Total cost:' + ' ' + reservation.getTotalCost()}"></span>
+		</div>
+		<br> <br> 
+		<a th:href="@{/passenger}">Book another flight</a>
+	</body>
+</html>
+
